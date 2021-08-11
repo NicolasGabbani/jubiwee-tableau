@@ -1,28 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Table :filters="filters" :questions="questions" :scores="scores" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import filters from "./json/filters"
+import questions from "./json/questions"
+import scores from "./json/scores"
+
+import Table from "./components/Table.vue"
 
 export default {
-  name: 'App',
+  name: "App",
+  data() {
+    return {
+      filters,
+      questions,
+      scores,
+    }
+  },
   components: {
-    HelloWorld
-  }
+    Table,
+  },
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style lang="scss" src="@/assets/app.scss"></style>
